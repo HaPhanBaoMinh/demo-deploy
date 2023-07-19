@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 import tw from 'twin.macro'
 import { BRAND_NAME, SITE_BASE_URL } from '../constants'
 import { NextSeo } from 'next-seo'
-import { getJobsListAPI } from '../apis/job_apis'
 import { useEffectOnce } from 'react-use'
 import Link from 'next/link'
 import { formatDate, getMediaURL, getSalaryEstimation, getSalaryPeriod, numberWithCommas } from '../utils'
@@ -31,18 +30,12 @@ function JobTypeTag (jobType) {
 }
 
 function Index ({ jobs, ...props }) {
-  const pageTitle = 'Việc Làm UIT'
-  const pageDesc = `Những việc làm mới được cập nhật tại ${BRAND_NAME}, chia sẽ với bạn bè công việc thú vị có thể giúp bạn kiếm thêm thu nhập.`
+  const pageTitle = ''
+  const pageDesc = ''
 
   const [items, setItems] = React.useState(null)
 
   const store = useSelector(state => state.UserStore)
-
-  useEffectOnce(() => {
-    getJobsListAPI().then(r => {
-      setItems(r.data)
-    }).catch(() => null)
-  })
 
   if (store.isAuth === false) {
     return (

@@ -1,4 +1,4 @@
-export const BRAND_NAME = 'ViecLamUIT'
+export const BRAND_NAME = 'LNManga'
 export const OG_TITLE = 'ViecLamUIT: Nơi tìm việc cho dân IT'
 
 export const RECAPTCHA_PUBLIC_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_PUBLIC_KEY
