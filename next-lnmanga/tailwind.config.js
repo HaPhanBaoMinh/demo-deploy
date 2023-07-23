@@ -20,11 +20,13 @@ module.exports = {
         dark_main: {
           100: '#1A202C',
           200: 'rgba(29,33,35,0.84)',
+          300: 'rgba(29,33,35,0.5)'
         },
         light_main: {
           100: '#F7FAFC',
-          200: '#EDF2F7',
-        }
+          200: '#EDF2F7'
+        },
+        outstanding: '#d54d6d'
       }
     },
     fontSize: {

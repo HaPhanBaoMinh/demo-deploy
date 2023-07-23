@@ -11,7 +11,6 @@ import { Menu, Switch } from '@headlessui/react'
 import ListIcon from 'bootstrap-icons/icons/list.svg'
 import BrightnessHighFillIcon from 'bootstrap-icons/icons/brightness-high-fill.svg'
 import MoonStarsFillIcon from 'bootstrap-icons/icons/moon-stars-fill.svg'
-import { useEffectOnce } from 'react-use'
 
 const ignoreHeaderURLsList = [
   'rgx:^/auth',
@@ -36,6 +35,7 @@ function SiteLayout (props) {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      // eslint-disable-next-line no-undef
       if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark')
         setIsDarkMode(true)
@@ -47,36 +47,39 @@ function SiteLayout (props) {
   }, [isDarkMode])
 
   const onChangeTheme = () => {
+    // eslint-disable-next-line no-undef
     localStorage.theme = localStorage.theme === 'dark' ? 'light' : 'dark'
     setIsDarkMode(!isDarkMode)
   }
 
   return (
     <>
-      <Header className='py-1'>
-        <div className="container mx-auto">
-          <div className="flex items-center">
-            <Link href="/"
-                  className="hover:bg-primary-600/10 rounded inline-flex active:outline-dashed active:outline-primary-600">
-              <Logo height={40} className="text-gray-800"/>
+      <Header>
+        <div className='container mx-auto'>
+          <div className='flex items-center'>
+            <Link
+              href='/'
+              className='hover:bg-primary-600/10 hidden lg:inline-flex rounded active:outline-dashed active:outline-primary-600'
+            >
+              <Logo height={40} className='text-gray-800' />
             </Link>
             {/* Desktop */}
-            <nav className="hidden lg:block ml-1">
-              <TopNavButton href="/">
+            <nav className='hidden lg:block ml-1'>
+              <TopNavButton href='/sang-tac/'>
                 Sáng tác
               </TopNavButton>
-              <TopNavButton href="/add-new-job/">
+              <TopNavButton href='/thao-luan/'>
                 Thảo luận
               </TopNavButton>
-              <TopNavButton href="/about/">
+              <TopNavButton href='/gioi-thieu/'>
                 Giới thiệu
               </TopNavButton>
-              <TopNavButton href="/about/">
+              <TopNavButton href='/truyen/'>
                 Danh sách truyện
               </TopNavButton>
             </nav>
-            <div className="grow"/>
-            <nav className="hidden lg:flex items-center ml-auto ">
+            <div className='grow' />
+            <nav className='hidden lg:flex items-center ml-auto '>
               <Switch
                 checked={isDarkMode}
                 onChange={onChangeTheme}
@@ -84,48 +87,89 @@ function SiteLayout (props) {
                   isDarkMode ? 'bg-black' : 'bg-white'
                 } relative inline-flex h-[29px] w-[50px] shrink-0 cursor-pointer rounded-full border-2 transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
               >
-              <span
-                className={`${
+                <span
+                  className={`${
                   isDarkMode ? 'translate-x-[21px] bg-white text-black' : 'translate-x-0 bg-yellow-400 text-white'
                 } pointer-events-none flex items-center justify-center h-[25px] w-[25px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
-              >
-                {isDarkMode ? <MoonStarsFillIcon width={13} height={13}/> : <BrightnessHighFillIcon width={13}
-                                                                                                    height={13}/>}
-              </span>
+                >
+                  {isDarkMode
+                    ? <MoonStarsFillIcon width={13} height={13} />
+                    : <BrightnessHighFillIcon
+                        width={13}
+                        height={13}
+                      />}
+                </span>
               </Switch>
 
-              <TopNavButton href="/about/">
+              <TopNavButton href='/about/'>
                 Đăng nhập
               </TopNavButton>
             </nav>
           </div>
 
           {/* Mobile */}
-          <div className="lg:hidden">
+          <div className='lg:hidden'>
             <Menu>
-              <Menu.Button>
-                <ListIcon width={24} height={24}/>
-              </Menu.Button>
+              <div className='flex px-3 py-1 items-center'>
+                <Menu.Button>
+                  <ListIcon width={30} height={30} className='dark:text-white text-dark_main-100' />
+                </Menu.Button>
+                <div className='grow' />
+                <Link
+                  href='/'
+                  className='hover:bg-primary-600/10 rounded inline-flex active:outline-dashed active:outline-primary-600'
+                >
+                  <Logo height={40} className='text-gray-800' />
+                </Link>
+                <div className='grow' />
+                <Switch
+                  checked={isDarkMode}
+                  onChange={onChangeTheme}
+                  className={`${
+                    isDarkMode ? 'bg-black' : 'bg-white'
+                  } relative inline-flex h-[29px] w-[50px] shrink-0 cursor-pointer rounded-full border-2 transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+                >
+                  <span
+                    className={`${
+                      isDarkMode ? 'translate-x-[21px] bg-white text-black' : 'translate-x-0 bg-yellow-400 text-white'
+                    } pointer-events-none flex items-center justify-center h-[25px] w-[25px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
+                  >
+                    {isDarkMode
+                      ? <MoonStarsFillIcon width={13} height={13} />
+                      : <BrightnessHighFillIcon
+                          width={13}
+                          height={13}
+                        />}
+                  </span>
+                </Switch>
+              </div>
 
-              <Menu.Items className="flex flex-col bg-red-50">
+              <Menu.Items className='flex flex-col bg-gray-200'>
                 <Menu.Item>
                   {({ active }) => (
-                    <TopNavButton href="/">
-                      Việc làm mới
+                    <TopNavButton href='/'>
+                      Sáng tác
                     </TopNavButton>
                   )}
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
-                    <TopNavButton href="/add-new-job/">
-                      Đăng việc
+                    <TopNavButton href='/add-new-job/'>
+                      Thảo luận
                     </TopNavButton>
                   )}
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
-                    <TopNavButton href="/about/">
-                      Giới thiệu website
+                    <TopNavButton href='/about/'>
+                      Giới thiệu
+                    </TopNavButton>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <TopNavButton href='/about/'>
+                      Danh sách truyện
                     </TopNavButton>
                   )}
                 </Menu.Item>
@@ -133,14 +177,15 @@ function SiteLayout (props) {
             </Menu>
           </div>
         </div>
+        <div className='h-[10px] md:hidden bg-light_main-100 dark:bg-[#414546]' />
       </Header>
       <Div>
         {props.children}
       </Div>
 
-      <SiteFooter/>
-      <GoTop/>
-      <Toast/>
+      <SiteFooter />
+      <GoTop />
+      <Toast />
     </>
   )
 }
@@ -152,7 +197,7 @@ const TopNavButton = ({ href, children, ...otherProps }) => {
   return (
     <MenuButton
       href={href}
-      color="inherit"
+      color='inherit'
       className={classnames({ active: href.replace(/\//g, '') === router.pathname.split('/')[1] })}
       {...otherProps}
     >
@@ -165,7 +210,7 @@ const TopNavButton = ({ href, children, ...otherProps }) => {
 const MenuButton = styled(Link)`
   ${tw`
     px-4
-    py-1
+    py-2
     inline-flex
     rounded
     hover:underline
@@ -174,7 +219,7 @@ const MenuButton = styled(Link)`
     active:outline-primary-600
     text-gray-600
     dark:text-gray-300
-    text-sm
+    text-base
   `}
   &.active {
     ${tw`

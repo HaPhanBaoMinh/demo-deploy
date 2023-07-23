@@ -8,29 +8,32 @@ function ComicCardChapter ({ ...props }) {
     <Div
       className={`w-full ${props.className}`}
     >
-      <div className="h-[85%] relative">
-        <Link className="block w-full h-full"
-              href="/"
-              title="Bằng một cách nào đó, dàn mỹ nhân hạng S lại đề cập đến tôi">
+      <div className='h-[85%] relative'>
+        <Link
+          className='block w-full h-full'
+          href='/'
+          title='Bằng một cách nào đó, dàn mỹ nhân hạng S lại đề cập đến tôi'
+        >
           <div
-            className="w-full h-full flex bg-center opacity-80 "
+            className='w-full h-full flex bg-center opacity-80 '
             style={{ backgroundImage: 'url(/images/default_cover_2.png)', backgroundSize: 'cover' }}
           />
         </Link>
 
-        <div className="p-2 z-10 absolute bottom-0 right-0">
+        <div className='p-2 z-10 absolute bottom-0 right-0'>
           <LinkCustom
-            href="/"
-            title="Chương 04: Ban sự bảo hộ thần thánh cho chú hổ con này!">
+            href='/'
+            title='Chương 04: Ban sự bảo hộ thần thánh cho chú hổ con này!'
+          >
             Chương 04: Ban sự bảo hộ thần thánh cho chú hổ con này!
           </LinkCustom>
           <SmTitle>KonoSuba Yorimichi</SmTitle>
         </div>
       </div>
       <ComicName
-        href="/"
-        className="dark:text-white text-primary-900"
-        title="The Hidden Strongest Knight Executed in the">
+        href='/'
+        title='The Hidden Strongest Knight Executed in the'
+      >
         The Hidden Strongest Knight Executed in the
       </ComicName>
     </Div>
@@ -46,7 +49,7 @@ const Div = styled.div`
         block
         flex
         flex-col
-        gap-2
+        gap-1
       `}
 `
 
@@ -56,6 +59,7 @@ const LinkCustom = styled(Link)`
   overflow: hidden;
   -webkit-box-orient: vertical;
   display: -webkit-box;
+
   ${tw`text-base font-bold text-white`}
   &:hover {
     ${tw`
@@ -79,7 +83,7 @@ const ComicName = styled(Link)`
   overflow: hidden;
   text-align: center;
   height: 36px;
-  ${tw`text-sm font-bold leading-[17px]`}
+  ${tw`text-sm font-bold leading-[17px] dark:text-white text-primary-900 block text-center`}
   &:hover {
     ${tw`
       text-primary-600
