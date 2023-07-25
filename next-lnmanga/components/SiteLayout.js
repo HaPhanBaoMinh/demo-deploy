@@ -171,7 +171,7 @@ function SiteLayout (props) {
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
-                    <TopNavButton href='/about/'>
+                    <TopNavButton href='/'>
                       Danh sách truyện
                     </TopNavButton>
                   )}
