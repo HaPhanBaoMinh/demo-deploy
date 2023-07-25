@@ -26,7 +26,7 @@ module.exports = {
           100: '#F7FAFC',
           200: '#EDF2F7'
         },
-        outstanding: '#d54d6d'
+        outstanding: '#A73955'
       }
     },
     fontSize: {

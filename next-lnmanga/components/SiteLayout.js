@@ -59,6 +59,7 @@ function SiteLayout (props) {
           <div className='flex items-center'>
             <Link
               href='/'
+              aria-label='home'
               className='hover:bg-primary-600/10 hidden lg:inline-flex rounded active:outline-dashed active:outline-primary-600'
             >
               <Logo height={40} className='text-gray-800' />
@@ -81,6 +82,7 @@ function SiteLayout (props) {
             <div className='grow' />
             <nav className='hidden lg:flex items-center ml-auto '>
               <Switch
+                aria-label='display-mode-switch'
                 checked={isDarkMode}
                 onChange={onChangeTheme}
                 className={`${
@@ -111,7 +113,7 @@ function SiteLayout (props) {
           <div className='lg:hidden'>
             <Menu>
               <div className='flex px-3 py-1 items-center'>
-                <Menu.Button>
+                <Menu.Button aria-label='mobile-menu-icon'>
                   <ListIcon width={30} height={30} className='dark:text-white text-dark_main-100' />
                 </Menu.Button>
                 <div className='grow' />
@@ -119,10 +121,11 @@ function SiteLayout (props) {
                   href='/'
                   className='hover:bg-primary-600/10 rounded inline-flex active:outline-dashed active:outline-primary-600'
                 >
-                  <Logo height={40} className='text-gray-800' />
+                  <Logo height={40} className='text-gray-800' aria-label='home' />
                 </Link>
                 <div className='grow' />
                 <Switch
+                  aria-label='display-mode-switch'
                   checked={isDarkMode}
                   onChange={onChangeTheme}
                   className={`${
@@ -234,6 +237,7 @@ const Header = styled.div`
     w-screen
     bg-light_main-100 
     dark:bg-dark_main-100
+    py-1
   `}
 `
 const Div = styled.div`

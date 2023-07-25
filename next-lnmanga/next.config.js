@@ -14,9 +14,9 @@ const nextConfig = {
   },
   distDir: 'build',
   trailingSlash: true,
-  assetPrefix: isProd ? 'https://cdn.vieclamuit.com' : undefined,
+  assetPrefix: isProd ? '' : undefined,
   images: {
-    domains: ['localhost', '127.0.0.1', 'media.vieclamuit.com', 'static.vieclamuit.com']
+    domains: ['localhost', '127.0.0.1']
   },
   modularizeImports: {
     lodash: {

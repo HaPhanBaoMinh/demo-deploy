@@ -17,8 +17,8 @@ import ComicCardDesc from '@/components/comic/CommicCardDesc'
 import ComicCardFollowNumber from '@/components/comic/ComicCardFollowNumber'
 
 function Index ({ jobs, ...props }) {
-  const pageTitle = ''
-  const pageDesc = ''
+  const pageTitle = 'LnManga'
+  const pageDesc = 'Dự án khởi nghiệp đầu tiên của  chúng tôi - LnManga'
   return (
     <>
       <NextSeo
@@ -93,9 +93,6 @@ function Index ({ jobs, ...props }) {
             <DiscussionTopics />
             <DiscussionTopics />
             <DiscussionTopics />
-            <DiscussionTopics />
-            <DiscussionTopics />
-            <DiscussionTopics />
           </ul>
         </div>
       </div>
@@ -113,7 +110,7 @@ function Index ({ jobs, ...props }) {
         </div>
         <div className='md:col-span-3 col-span-12 gap-4 flex flex-col'>
           <Span boldText='Truyện' underlineText='VỪA ĐỌC' />
-          <ul className='w-100 block h-[260px] overflow-scroll md:pl-3 px-3 md:px-0'>
+          <div className='w-100 block h-[260px] overflow-scroll md:pl-3 px-3 md:px-0'>
             <ComicCardReadRecent className='h-[65px] pb-3' />
             <ComicCardReadRecent className='h-[65px] pb-3' />
             <ComicCardReadRecent className='h-[65px] pb-3' />
@@ -122,7 +119,10 @@ function Index ({ jobs, ...props }) {
             <ComicCardReadRecent className='h-[65px] pb-3' />
             <ComicCardReadRecent className='h-[65px] pb-3' />
             <ComicCardReadRecent className='h-[65px] pb-3' />
-          </ul>
+            <ComicCardReadRecent className='h-[65px] pb-3' />
+            <ComicCardReadRecent className='h-[65px] pb-3' />
+            <ComicCardReadRecent className='h-[65px] pb-3' />
+          </div>
         </div>
       </div>
       <div className='container mx-auto grid grid-cols-12 md:py-10 gap-[20px] '>
@@ -145,13 +145,18 @@ function Index ({ jobs, ...props }) {
         </div>
         <div className='md:col-span-3 col-span-12 gap-4 flex flex-col'>
           <Span boldText='Bình luận' underlineText='GẦN ĐÂY' />
-          <ul className='w-100 block overflow-scroll px-3 md:pl-3 md:px-0'>
+          <div className='w-100 block overflow-scroll px-3 md:pl-3 md:px-0'>
             <CommentHeadline />
             <CommentHeadline />
             <CommentHeadline />
             <CommentHeadline />
             <CommentHeadline />
-          </ul>
+            <CommentHeadline />
+            <CommentHeadline />
+            <CommentHeadline />
+            <CommentHeadline />
+            <CommentHeadline />
+          </div>
         </div>
       </div>
       <div className='w-screen bg-light_main-200 dark:bg-dark_main-300 py-5'>
@@ -172,7 +177,7 @@ function Index ({ jobs, ...props }) {
           </div>
           <div className='md:col-span-3 col-span-12 gap-4 flex flex-col'>
             <Span boldText='Theo dõi' underlineText='NHIỀU' />
-            <ul className='w-100 block h-[520px] overflow-scroll px-3 md:pl-3 md:px-0'>
+            <div className='w-100 block h-[520px] overflow-scroll px-3 md:pl-3 md:px-0'>
               <ComicCardFollowNumber className='h-[65px] pb-1' />
               <ComicCardFollowNumber className='h-[65px] pb-1' />
               <ComicCardFollowNumber className='h-[65px] pb-1' />
@@ -184,8 +189,8 @@ function Index ({ jobs, ...props }) {
               <ComicCardFollowNumber className='h-[65px] pb-1' />
               <ComicCardFollowNumber className='h-[65px] pb-1' />
               <ComicCardFollowNumber className='h-[65px] pb-1' />
-              <ComicCardFollowNumber className='h-[65px] pb-1' />
-            </ul>
+
+            </div>
           </div>
         </div>
       </div>
@@ -245,7 +250,7 @@ function DiscussionTopics () {
         Hỏi Truyện từ A-Z. Góc 8 nhảm cho dịch giả 2.0
       </LinkCustom>
       <div className='grow' />
-      <span className='text-xs text-gray-400 dark:text-gray-400'>1 giờ trước</span>
+      <span className='text-xs text-dark_main-100 dark:text-white'>1 giờ trước</span>
     </li>
   )
 }
